@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DarkChat IMBA — Вход</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dots" id="dots"></div>
+
+<div class="container">
+    <h1>DarkChat IMBA</h1>
+
+    <div id="login">
+        <input type="text" placeholder="Логин" id="login-user">
+        <input type="password" placeholder="Пароль" id="login-pass">
+        <button onclick="login()">Войти</button>
+        <div class="switch">
+            Нет аккаунта? <span onclick="showRegister()">Регистрация</span>
+        </div>
+    </div>
+
+    <div id="register" style="display:none;">
+        <input type="text" placeholder="Логин" id="reg-user">
+        <input type="password" placeholder="Пароль" id="reg-pass">
+        <input type="password" placeholder="Повторите пароль" id="reg-pass2">
+        <button onclick="register()">Создать аккаунт</button>
+        <div class="switch">
+            Уже есть аккаунт? <span onclick="showLogin()">Войти</span>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+// Анимация точек
+const dots = document.getElementById("dots");
+for(let i=0;i<50;i++){
+    let d = document.createElement("div");
+    d.className="dot";
+    d.style.top=Math.random()*100+"vh";
+    d.style.animationDelay=Math.random()*5+"s";
+    dots.appendChild(d);
+}
+
+// Переключение форм
+function showRegister(){
+    document.getElementById('login').style.display='none';
+    document.getElementById('register').style.display='block';
+}
+function showLogin(){
+    document.getElementById('login').style.display='block';
+    document.getElementById('register').style.display='none';
+}
+</script>
+
+</body>
+</html>
